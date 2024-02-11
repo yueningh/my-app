@@ -30,7 +30,6 @@ const MemePage = () => {
       minHeight: '100vh',
       padding: '20px',
       textAlign: 'center',
-      background: 'rgb(34,151,195)',
       background: 'linear-gradient(to bottom, #22bce0, #fdbb2d)',
       }}>
       <h1 style={{ color: '#333' }}>Meme Generator</h1>
