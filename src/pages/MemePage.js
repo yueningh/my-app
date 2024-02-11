@@ -1,3 +1,4 @@
+// MemePage.js
 import React, { useState } from 'react';
 
 const MemePage = () => {
@@ -22,24 +23,29 @@ const MemePage = () => {
   };
 
   return (
-    <div style={{ backgroundColor: 'lightyellow', padding: '20px', textAlign: 'center' }}>
-      <h1>Meme Generator</h1>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      minHeight: '100vh',
+      padding: '20px',
+      textAlign: 'center',
+      background: 'rgb(34,151,195)',
+      background: 'linear-gradient(to bottom, #22bce0, #fdbb2d)',
+      }}>
+      <h1 style={{ color: '#333' }}>Meme Generator</h1>
       
-      <label>
+      <label style={{ color: '#333', marginBottom: '10px', display: 'block' }}>
         Top Text:
-        <input type="text" value={topText} onChange={(e) => handleInputChange(e, setTopText)} />
+        <input type="text" value={topText} onChange={(e) => handleInputChange(e, setTopText)} style={{ marginLeft: '30px', padding: '5px', borderRadius: '5px', border: '1px solid #ccc' }} />
       </label>
       
-      <br />
-      
-      <label>
+      <label style={{ color: '#333', marginBottom: '10px', display: 'block' }}>
         Bottom Text:
-        <input type="text" value={bottomText} onChange={(e) => handleInputChange(e, setBottomText)} />
+        <input type="text" value={bottomText} onChange={(e) => handleInputChange(e, setBottomText)} style={{ marginLeft: '5px', padding: '5px', borderRadius: '5px', border: '1px solid #ccc' }} />
       </label>
-      
-      <br />
 
-      <button onClick={generateMeme}>Generate Meme</button>
+      <button style={{ backgroundColor: '#4caf50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', padding: '10px 20px', fontSize: '1rem', marginTop: '20px' }} onClick={generateMeme}>Generate Meme</button>
 
       {memeImage && (
         <div style={{ marginTop: '20px' }}>
