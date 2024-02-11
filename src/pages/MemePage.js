@@ -1,51 +1,51 @@
-// MemePage.js
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const MemePage = () => {
   const [topText, setTopText] = useState('');
-  const [bottomText, setBottomText] = useState('');
   const [memeImage, setMemeImage] = useState(null);
-
-  const handleInputChange = (event, setTextFunction) => {
-    setTextFunction(event.target.value);
+  const handleInputChange = (event) => {
+    setTopText(event.target.value);
   };
-
   const generateMeme = () => {
     // Add your meme generation logic here
     // For demonstration purposes, let's assume there's a meme API that returns an image URL
-    const apiUrl = `https://api.example.com/meme?top=${encodeURIComponent(topText)}&bottom=${encodeURIComponent(bottomText)}`;
-    
+    const apiUrl = 'https://api.example.com/meme?top=${encodeURIComponent(topText)}';
     // Fetch meme image
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => setMemeImage(data.url))
       .catch(error => console.error('Error fetching meme:', error));
   };
-
+  const buttonStyle = {
+    background: '#000080', // Dark Blue
+    color: 'white',
+    borderRadius: '5px', // Rounded corners
+    cursor: 'pointer',
+    padding: '10px 20px', // Decreased button padding
+    fontSize: '1rem', // Button font size
+    border: 'none',
+  };
+  const inputStyle = {
+    borderRadius: '8px', // Rounded corners
+    padding: '8px', // Input padding
+    fontSize: '16px', // Input font size
+    boxShadow: 'none', // Remove shadows
+  };
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      minHeight: '100vh',
-      padding: '20px',
-      textAlign: 'center',
-      background: 'linear-gradient(to bottom, #22bce0, #fdbb2d)',
-      }}>
-      <h1 style={{ color: '#333' }}>Meme Generator</h1>
-      
-      <label style={{ color: '#333', marginBottom: '10px', display: 'block' }}>
-        Top Text:
-        <input type="text" value={topText} onChange={(e) => handleInputChange(e, setTopText)} style={{ marginLeft: '30px', padding: '5px', borderRadius: '5px', border: '1px solid #ccc' }} />
+    <div style={{ background: 'radial-gradient(circle, #BFD9EB, #A1F1A1)', padding: '20px', textAlign: 'center', minHeight: '100vh', boxSizing: 'border-box' }}>
+      <h1 style={{ color: '#000080' }}>Song Recommendation</h1>
+      <div style={{ marginBottom: '10px' }}>
+        <Link to="/">
+          <button style={buttonStyle}>Home</button>
+        </Link>
+      </div>
+      <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px', color: '#000080' }}>
+        <span style={{ marginRight: '10px' }}>How are you feeling today?</span>
+        <input type="text" value={topText} onChange={handleInputChange} style={inputStyle} />
       </label>
-      
-      <label style={{ color: '#333', marginBottom: '10px', display: 'block' }}>
-        Bottom Text:
-        <input type="text" value={bottomText} onChange={(e) => handleInputChange(e, setBottomText)} style={{ marginLeft: '5px', padding: '5px', borderRadius: '5px', border: '1px solid #ccc' }} />
-      </label>
-
-      <button style={{ backgroundColor: '#4caf50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', padding: '10px 20px', fontSize: '1rem', marginTop: '20px' }} onClick={generateMeme}>Generate Meme</button>
-
+      <div style={{ marginBottom: '15px' }}>
+        <button onClick={generateMeme} style={buttonStyle}>Display Song</button>
+      </div>
       {memeImage && (
         <div style={{ marginTop: '20px' }}>
           <img src={memeImage} alt="Generated Meme" style={{ maxWidth: '100%' }} />
@@ -54,5 +54,4 @@ const MemePage = () => {
     </div>
   );
 }
-
 export default MemePage;
