@@ -1,3 +1,13 @@
+### Home Page
+<img src="https://github.com/yueningh/my-app/blob/master/WellnessAI%20Home.png" height =300 width="600" />
+
+### Song Recommendation
+<img src="https://github.com/yueningh/my-app/blob/master/WellnessAI%20Song.png" height =300 width="500" />
+
+### Schedule Wellness Activities
+<img src="https://github.com/yueningh/my-app/blob/master/WellnessAI%20Schedule.png" height =300 width="600" />
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
